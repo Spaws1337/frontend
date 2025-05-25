@@ -1,0 +1,112 @@
+/* Секция «О нас» */
+.about-wrapper {
+    padding: 60px 20px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .about-text {
+    /* изначально невидимая для анимации */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  .about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .about-text h2 {
+    font-size: 32px;
+    color: #660022;
+    margin-bottom: 10px;
+  }
+  
+  .about-text p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  
+  /* Секция «Информационные блоки» */
+  .info-blocks {
+    padding: 60px 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .info-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .info-item.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .info-item img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+  }
+  
+  .info-text {
+    max-width: 600px;
+    /* изначально невидимая для анимации */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  .info-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .info-text h3 {
+    font-size: 24px;
+    color: #660022;
+    margin-bottom: 10px;
+  }
+  
+  .info-text em {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .info-text p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Адаптив */
+  @media (max-width: 768px) {
+    .about-block {
+      padding: 0 10px;
+    }
+    .info-item {
+      flex-direction: column !important;
+      text-align: center;
+    }
+  }
+  

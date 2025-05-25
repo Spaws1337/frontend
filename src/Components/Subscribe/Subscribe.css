@@ -1,0 +1,43 @@
+/* SubscribeSection.css */
+
+/* Блок подписки */
+.subscribe {
+    background-color: #ff6959;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .subscribe__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .subscribe__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .subscribe__text {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .subscribe__button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #ff6959;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribe__button:hover {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  

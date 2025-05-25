@@ -1,0 +1,244 @@
+/* === Общие обёртки === */
+.product {
+  /* отступ сверху = высота хедера (80px) + отступ внутри (60px) */
+  padding: calc(80px + 60px) 20px 20px;
+  background-color: #fff;
+}
+
+.product__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+}
+
+.product__gallery {
+  flex: 0 0 600px;    /* фиксируем ширину зоны галереи */
+  width: 100%;
+  max-width: 600px;
+}
+
+/* === Галерея === */
+.gallery__main {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  /* квадратный «короб» 600×600 */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;     
+  border-radius: 12px;
+  background: #fff;     /* фон под буквом, если картинка меньше */
+}
+
+/* все слайды абсолютно накладываются друг на друга */
+.gallery__main img,
+.gallery__main model-viewer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* показываем всю картинку, без обрезки */
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* только активный — полностью непрозрачный */
+.gallery__main img.active,
+.gallery__main model-viewer.active {
+  opacity: 1;
+}
+
+/* стрелки по центру «короба» */
+.gallery__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 20px;
+  padding: 6px 10px;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.gallery__nav--prev { left: 10px; }
+.gallery__nav--next { right: 10px; }
+.gallery__nav:hover { background: rgba(255,255,255,0.9); }
+
+/* миниатюры под «коробом» */
+.gallery__thumbs {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.gallery__thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery__thumb:hover,
+.gallery__thumb.active {
+  opacity: 1;
+  border-color: #87BF96;
+}
+
+/* === Детали товара === */
+.product__details {
+  max-width: 500px;
+}
+
+.product__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.product__price {
+  font-size: 24px;
+  color: #B20000;
+  margin-bottom: 20px;
+}
+
+.product__description-text {
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Размеры */
+.product__sizes {
+  margin-bottom: 20px;
+}
+.product__sizes span {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.product__sizes button {
+  padding: 8px 14px;
+  margin: 5px 5px 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.product__sizes button:hover {
+  background-color: #eee;
+}
+.product__sizes button.selected {
+  background-color: #87BF96;
+  color: #fff;
+}
+
+/* Кнопка в корзину */
+.product__buy {
+  background: #87BF96;
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease;
+}
+.product__buy:hover {
+  background-color: #75a47f;
+}
+
+/* Список фичей */
+.product__features {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+/* === Аккордеон === */
+.accordion-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.accordion__item {
+  border-top: 1px solid #ccc;
+  padding: 18px 0;
+}
+.accordion__summary {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+}
+.accordion__summary::-webkit-details-marker {
+  display: none;
+}
+.accordion__summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+.accordion__item[open] > .accordion__summary::after {
+  content: '−';
+}
+.accordion__item p,
+.accordion__image {
+  margin-top: 10px;
+  color: #444;
+}
+.accordion__image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* === Toast === */
+.toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: #007bff;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* === Учет фиксированного хедера при скролле по якорю === */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* === Адаптив на мобильных === */
+@media (max-width: 700px) {
+  .product__container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

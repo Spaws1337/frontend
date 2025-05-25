@@ -1,0 +1,166 @@
+/* Сброс */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body.lock-scroll {
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: #ff6959;
+  padding: 20px;
+  z-index: 999;
+}
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo-img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Десктоп-меню */
+.header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.nav__list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav__link:hover {
+  color: #333;
+}
+
+/* Правый блок (корзина + бургер) */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header__cart {
+  position: relative;
+}
+.header__cart-icon {
+  width: 24px;
+  height: 24px;
+}
+.header__cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #87BF96;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Бургер-кнопка (всегда видна) */
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+.burger__line {
+  width: 24px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+}
+
+/* Боковая панель */
+.burger-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  padding: 60px 20px 20px; /* отступ сверху для крестика */
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s;
+  z-index: 1000;
+  overflow-y: auto;
+}
+.burger-menu.active {
+  right: 0;
+}
+
+/* Кнопка закрытия внутри меню */
+.burger-menu__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s;
+}
+.burger-menu__close:hover {
+  color: #ff6959;
+}
+
+.burger-menu__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.burger-menu__link {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.burger-menu__link:hover {
+  color: #ff6959;
+}
+
+/* Оверлей */
+.burger-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: 900;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+  .burger-menu__close{
+    display: none;
+  }
+}

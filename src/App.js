@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Navbar from './Components/Navbar/Navbar';
+import Subscribe from './Components/Subscribe/Subscribe';
+
+import Home from './Pages/Home';
+import Catalog from './Components/Catalog/Catalog';
+import ProductPage from './Pages/ProductPage';
+import Cart from './Pages/Cart';  // Импортируем страницу корзины
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Страница списка */}
+        <Route path="/products" element={<Catalog />} />
+        {/* Динамическая страница товара */}
+        <Route path="/products/:id" element={<ProductPage />} />
+        {/* Страница корзины */}
+        <Route path="/cart" element={<Cart />} />
+
+        <Route path="*" element={<h2>Страница не найдена</h2>} />
+      </Routes>
+
+      <Subscribe />
+    </BrowserRouter>
   );
 }
 
