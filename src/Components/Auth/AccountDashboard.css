@@ -1,0 +1,216 @@
+/* ============================= */
+/* AccountDashboard.css (финал) */
+/* ============================= */
+
+/* --------- 1) Общий контейнер --------- */
+.cabinet {
+    /* Убрали нижний отступ (40px → 0), чтобы не было лишнего пространства 
+       между «Личным кабинетом» и секцией «Подпишись на наш Telegram» */
+    padding: calc(80px + 40px) 20px 60px;
+    background-color: #fff;
+  }
+  
+  /* Центрируем максимальную ширину и добавляем авто-отступ по сторонам */
+  .cabinet__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* --------- 2) Заголовок «Личный кабинет» --------- */
+  .cabinet__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* --------- 3) Flex-контейнер: сайдбар + основная часть --------- */
+  .cabinet__content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center; /* если место по горизонтали — центрируем */
+    flex-wrap: wrap; /* на узких экранах сайдбар уйдёт наверх */
+  }
+  
+  /* --------- 4) Сайдбар --------- */
+  .cabinet__sidebar {
+    flex: 0 0 250px;            /* фиксированная ширина 250px */
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: fit-content;        /* контейнер вернётся к высоте контента */
+  }
+  
+  /* Убираем стилевые маркеры у списка */
+  .cabinet__sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Кнопка-пункт в сайдбаре */
+  .cabinet__sidebar-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  
+  /* Стили при наведении и при активном состоянии */
+  .cabinet__sidebar-link:hover,
+  .cabinet__sidebar-link.active {
+    background: #ff6959;
+    color: #fff;
+  }
+  
+  /* --------- 5) Основная область справа --------- */
+  .cabinet__main-block {
+    flex: 1;                      /* занимает всю оставшуюся ширину */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* --------- 6) Сетка карточек --------- */
+  .cabinet__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    width: 100%;
+  }
+  
+  /* --------- 7) Отдельная карточка (button чтобы поймать onClick) --------- */
+  .cabinet__item {
+    background: #f7f7f7;
+    border: none;                /* у кнопки убираем дефолтный border */
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 180px;               /* фиксированная высота, чтобы все карточки были одинаковые */
+    padding: 20px;               /* внутренний отступ, чтобы иконка не «срезалась» */
+    transition: background 0.3s, color 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    overflow: visible;           /* чтобы иконка при ховере не резалась */
+  }
+  
+  .cabinet__item:hover {
+    background: #ff6959;
+    color: #fff;
+  }
+  
+  /* --------- 8) Иконка внутри карточки --------- */
+  .cabinet__icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .cabinet__item:hover .cabinet__icon {
+    color: #fff;
+  }
+  
+  /* --------- 9) Контент раздела (отображается при activeSection ≠ 'default') --------- */
+  .section-content {
+    width: 100%;
+    max-width: 800px; /* ограничим максимальную ширину контента */
+    text-align: left;
+  }
+  
+  /* Заголовки внутри раздела */
+  .section-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Обычный текст внутри раздела */
+  .section-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 16px;
+  }
+  
+  /* Кнопка «Назад» */
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .back-button:hover {
+    background: #e0e0e0;
+  }
+  
+  /* ===== Адаптив: скрываем сайдбар и делаем одну колонку карточек ===== */
+  @media (max-width: 768px) {
+    .cabinet__sidebar {
+      display: none; /* прячем лево меню */
+    }
+  
+    .cabinet__main-block {
+      width: 100%;
+    }
+  
+    .cabinet__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 400px;  /* карточка максимум 400px, чтобы не во всю ширину */
+      margin: 0 auto;    /* центрируем карточки */
+    }
+  
+    .cabinet__item {
+      height: auto;       /* убираем фиксированную высоту, карточка «подстраивается» */
+      padding: 20px 10px;
+    }
+  
+    /* Уменьшим размер заголовка «Личный кабинет» на мобильных */
+    .cabinet__title {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+  
+    .section-content {
+      padding: 0 10px;
+    }
+  }
+  
+  /* Можно добавить отдельный @media для очень узких экранов (<480px) */
+  @media (max-width: 480px) {
+    .cabinet__grid {
+      max-width: 300px;
+    }
+  }
+  

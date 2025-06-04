@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -8,27 +7,34 @@ import Subscribe from './Components/Subscribe/Subscribe';
 import Home from './Pages/Home';
 import Catalog from './Components/Catalog/Catalog';
 import ProductPage from './Pages/ProductPage';
-import Cart from './Pages/Cart';  // Импортируем страницу корзины
+import Cart from './Pages/Cart';
+import PincodeLogin from './Components/Auth/PincodeLogin';
+
+import { AuthProvider } from './Components/Auth/AuthContext';
+import AccountDashboard from './Components/Auth/AccountDashboard';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* Страница списка */}
-        <Route path="/products" element={<Catalog />} />
-        {/* Динамическая страница товара */}
-        <Route path="/products/:id" element={<ProductPage />} />
-        {/* Страница корзины */}
-        <Route path="/cart" element={<Cart />} />
+        <Routes>
+          <Route path="/users/:login" element={<PincodeLogin />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Catalog />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<Cart />} />
 
-        <Route path="*" element={<h2>Страница не найдена</h2>} />
-      </Routes>
+          <Route path="/account" element={<AccountDashboard />} />
 
-      <Subscribe />
-    </BrowserRouter>
+
+          <Route path="*" element={<h2>Страница не найдена</h2>} />
+        </Routes>
+
+        <Subscribe />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
