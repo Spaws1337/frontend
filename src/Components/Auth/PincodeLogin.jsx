@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // добавили useNavigate
 import { ref, get } from 'firebase/database';
 import { db } from '../../firebase';
 import { useAuth } from './AuthContext';
@@ -7,9 +7,9 @@ import './PincodeLogin.css';
 
 const PincodeLogin = () => {
   const { login } = useParams();
+  const navigate = useNavigate(); // инициализируем навигацию
   const [pincode, setPincode] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
   const { setUser } = useAuth();
 
   const handleLogin = async (e) => {
@@ -30,8 +30,9 @@ const PincodeLogin = () => {
           };
           localStorage.setItem('authUser', JSON.stringify(authData));
           setUser(authData);
-          setSuccess(true);
-          setError('');
+
+          // сразу перенаправляем на /account
+          navigate('/account');
         } else {
           setError('Неверный пин-код');
         }
@@ -48,22 +49,18 @@ const PincodeLogin = () => {
     <div className="pincode-container">
       <div className="pincode-box">
         <h2>Вход для {login}</h2>
-        {!success ? (
-          <form onSubmit={handleLogin}>
-            <input
-              className="pincode-input"
-              type="password"
-              placeholder="Введите пин-код"
-              value={pincode}
-              onChange={(e) => setPincode(e.target.value)}
-              required
-            />
-            <button className="pincode-button" type="submit">Войти</button>
-            {error && <p className="pincode-error">{error}</p>}
-          </form>
-        ) : (
-          <p className="pincode-success">Добро пожаловать, {login}!</p>
-        )}
+        <form onSubmit={handleLogin}>
+          <input
+            className="pincode-input"
+            type="password"
+            placeholder="Введите пин-код"
+            value={pincode}
+            onChange={(e) => setPincode(e.target.value)}
+            required
+          />
+          <button className="pincode-button" type="submit">Войти</button>
+          {error && <p className="pincode-error">{error}</p>}
+        </form>
       </div>
     </div>
   );

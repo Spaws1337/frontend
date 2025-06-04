@@ -1,3 +1,4 @@
+// src/Components/Auth/AuthContext.jsx
 import { createContext, useEffect, useState, useContext } from 'react';
 
 const AuthContext = createContext();

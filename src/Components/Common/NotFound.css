@@ -1,0 +1,51 @@
+/* src/Components/Common/NotFound.css */
+
+/* 1) Контейнер, растягивающийся на весь экран */
+.notfound-container {
+    /* Заставляем контейнер занимать всю высоту вьюпорта */
+    height: 100vh;
+    width: 100%;
+    
+    /* Ставим фон-картинку */
+    background-image: url('../Assets/404.png');
+    /* Flexbox, чтобы легко выровнять текст по центру */
+    display: flex;
+    align-items: center;   /* по вертикали */
+    justify-content: center; /* по горизонтали */
+    /* Любые дополнительные отступы, если нужно */
+    padding: 0;   /* убрали отступы */
+    margin: 0;    /* убрали внешние отступы */
+  }
+  
+  /* 2) Блок с текстом поверх фона */
+  .notfound-content {
+    /* Чтобы текст не был растянут во всю ширину */
+    max-width: 500px;
+    padding: 20px;
+  
+    /* Можно добавить полупрозрачный фон, если текст плохо читается на ярком фоне */
+
+    border-radius: 8px;
+  
+    /* Снова Flex (колонка), чтобы заголовок сверху, абзац снизу */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 3) Заголовок */
+  .notfound-title {
+    font-size: 2rem;      /* 32px примерно */
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  
+  /* 4) Текст */
+  .notfound-text {
+    font-size: 1rem;      /* 16px */
+    color: #fff;
+    line-height: 1.4;
+    text-align: center;
+  }
+  

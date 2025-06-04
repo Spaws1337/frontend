@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import infoBlocks from '../Assets/infoBlocks';
 import './AboutSection.css'; // ваш общий CSS
-
+ 
 const AboutSection = () => {
   const aboutTextRef = useRef(null);
   const infoTextRefs = useRef([]);

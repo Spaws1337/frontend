@@ -177,7 +177,7 @@
   /* ===== Адаптив: скрываем сайдбар и делаем одну колонку карточек ===== */
   @media (max-width: 768px) {
     .cabinet__sidebar {
-      display: none; /* прячем лево меню */
+      display: none; /* прячем левое меню */
     }
   
     .cabinet__main-block {

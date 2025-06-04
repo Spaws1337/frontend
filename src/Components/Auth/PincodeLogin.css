@@ -1,52 +1,84 @@
+/* ------------------------------------------------- */
+/*  Стили только для формы ввода PIN-кода (Pincode)  */
+/* ------------------------------------------------- */
+
+/* Чтобы фон остался белым, а форма располагалась точно под Header */
+.pincode-page {
+  background-color: #fff;
+}
+
+/* 
+  Центрируем форму и даём ей отступы 
+  сверху/снизу, чтобы она не «прилипала» к Header/мобильному меню 
+*/
 .pincode-container {
-    margin-top: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-  }
-  
-  .pincode-box {
-    background: #fff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .pincode-input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  .pincode-button {
-    background: #ff6959;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .pincode-button:hover {
-    background: #e45748;
-  }
-  
-  .pincode-error {
-    color: red;
-    margin-top: 12px;
-  }
-  
-  .pincode-success {
-    color: green;
-    font-size: 18px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;            /* 100px сверху и снизу */
+  min-height: calc(100vh - 200px);/* Мин. высота = вся высота экрана минус header+footer (~200px) */
+}
+
+.pincode-box {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.pincode-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Выделим имя пользователя полужирным чуть другим цветом, если надо */
+.login-name {
+  color: #ff6959;
+}
+
+/* Стили для <input> */
+.pincode-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.pincode-input:focus {
+  outline: none;
+  border-color: #ff6959;
+}
+
+/* Стили для кнопки «Войти» */
+.pincode-button {
+  background-color: #ff6959;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.pincode-button:hover {
+  background-color: #e45748;
+}
+
+/* Ошибка/Успех */
+.pincode-error {
+  color: red;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.pincode-success {
+  color: green;
+  font-size: 18px;
+}

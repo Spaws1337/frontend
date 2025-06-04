@@ -1,12 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import { FiLogOut } from 'react-icons/fi';
 
 const AuthDetails = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate(); // импортируем хук для навигации
 
   if (!user) return null;
+
+  const handleLogout = async () => {
+    try {
+      await logout();       // сначала выполняем разлогин
+      navigate('/');        // затем перенаправляем на домашнюю страницу
+    } catch (err) {
+      console.error('Ошибка при выходе:', err);
+      // Здесь можно показать уведомление об ошибке, если нужно
+    }
+  };
 
   return (
     <div className="auth-block" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -24,7 +35,7 @@ const AuthDetails = () => {
         />
       </Link>
       <button
-        onClick={logout}
+        onClick={handleLogout}
         style={{
           background: 'none',
           border: 'none',
