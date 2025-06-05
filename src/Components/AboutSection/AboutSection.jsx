@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useEffect, useRef } from 'react';
 import infoBlocks from '../Assets/infoBlocks';
 import './AboutSection.css'; // ваш общий CSS

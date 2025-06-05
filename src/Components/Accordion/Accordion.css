@@ -1,67 +1,169 @@
 /* Accordion.css */
 
 .accordion-section {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-  
-  .accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .accordion__item {
-    border-top: 1px solid #ccc;
-    padding: 18px 0;
-  }
-  
-  .accordion__summary {
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    padding-right: 20px;
-  }
-  
-  .accordion__summary::-webkit-details-marker {
-    display: none;
-  }
-  
-  .accordion__summary::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    font-size: 18px;
-    transition: transform 0.3s ease;
-  }
-  
-  .accordion__item[open] > .accordion__summary::after {
-    content: '−';
-  }
-  
-  .accordion__content {
-    margin-top: 10px;
-    color: #444;
-  }
-  
-  .accordion__content p,
-  .accordion__content ul,
-  .accordion__content img,
-  .accordion__content iframe {
-    margin-top: 10px;
-  }
-  
-  .accordion__content ul {
-    list-style: disc;
-    padding-left: 20px;
-  }
-  
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.accordion__item {
+  border-top: 1px solid #ddd; /* прямые линии */
+  background: #fff;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion__item:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion__summary {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding: 22px 44px 18px 0; /* справа больше места под иконку */
+  background: none;
+  color: #222;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  outline: none;
+  transition: color 0.22s;
+  user-select: none;
+}
+
+.accordion__item[open] > .accordion__summary {
+  color: #ff2d55;
+}
+
+.accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__summary:before {
+  /* стрелка слева от заголовка, как ▼ на старом сайте */
+  content: '▶';
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #ff2d55;
+  transition: transform 0.3s;
+}
+
+.accordion__item[open] > .accordion__summary:before {
+  /* стрелка вниз если открыт */
+  transform: rotate(90deg);
+}
+
+.accordion__summary::after {
+  /* плюс-минус справа */
+  content: '+';
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff2d55;
+  transition: content 0.2s;
+  line-height: 1;
+}
+
+.accordion__item[open] > .accordion__summary::after {
+  content: '−';
+}
+
+.accordion__content {
+  padding: 0 0 20px 24px;
+  font-size: 16px;
+  color: #444;
+  background: none;
+  line-height: 1.65;
+  animation: fadeIn 0.24s cubic-bezier(.37,1.32,.76,1.03);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-7px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.accordion__content ul {
+  list-style: disc;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.accordion__content li {
+  margin-bottom: 8px;
+}
+
+.accordion__image {
+  display: block;
+  max-width: 400px; /* Можно и больше, если хочется ещё крупнее */
+  width: 50%;
+  border-radius: 8px;
+  margin: 14px 0;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
   .accordion__image {
     max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
   }
-  
+}
+@media (max-width: 600px) {
+  .accordion__summary, .accordion__content {
+    padding: 16px 10px 14px 8px;
+  }
+}
+
+.accordion__modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.84);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInModal 0.2s;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.accordion__modal-image {
+  max-width: 98vw;
+  max-height: 85vh;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.22);
+  object-fit: contain;
+}
+
+.accordion__modal-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  font-size: 38px;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 2022;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.accordion__modal-close:hover {
+  color: #ff2d55;
+}

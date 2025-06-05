@@ -6,7 +6,7 @@
 .cabinet {
     /* Убрали нижний отступ (40px → 0), чтобы не было лишнего пространства 
        между «Личным кабинетом» и секцией «Подпишись на наш Telegram» */
-    padding: calc(80px + 40px) 20px 60px;
+    padding: calc(80px + 40px) 20px 120px;
     background-color: #fff;
   }
   

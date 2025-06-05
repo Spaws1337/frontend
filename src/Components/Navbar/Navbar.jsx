@@ -1,3 +1,4 @@
+// src/components/Navbar/Navbar.jsx
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -38,7 +39,7 @@ const BURGER_LINKS = [
   { to: '/recycle', label: 'ПЕРЕРАБОТКА', isHash: false },
 ];
 
-export default function Navbar() {
+export default function Navbar({ cartCount }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
@@ -86,7 +87,8 @@ export default function Navbar() {
         <div className="header__right">
           <NavLink to="/cart" className="header__cart">
             <IoCartOutline size={28} style={{ cursor: 'pointer', color: '#000' }} />
-            <span className="header__cart-count">0</span>
+            {/* Здесь подставляется динамическое число */}
+            <span className="header__cart-count">{cartCount}</span>
           </NavLink>
 
           <button
@@ -103,15 +105,25 @@ export default function Navbar() {
           <AuthDetails />
         </div>
 
-        <aside ref={menuRef} className={`burger-menu ${isOpen ? 'active' : ''}`} aria-hidden={!isOpen}>
-          <button className="burger-menu__close" onClick={close} aria-label="Закрыть меню">&times;</button>
+        <aside
+          ref={menuRef}
+          className={`burger-menu ${isOpen ? 'active' : ''}`}
+          aria-hidden={!isOpen}
+        >
+          <button className="burger-menu__close" onClick={close} aria-label="Закрыть меню">
+            &times;
+          </button>
           <ul className="burger-menu__list">
             {BURGER_LINKS.map(({ to, label, isHash }) => (
               <li key={to}>
                 {isHash ? (
-                  <HashLink smooth to={to} className="burger-menu__link" onClick={close}>{label}</HashLink>
+                  <HashLink smooth to={to} className="burger-menu__link" onClick={close}>
+                    {label}
+                  </HashLink>
                 ) : (
-                  <NavLink to={to} className="burger-menu__link" onClick={close} end>{label}</NavLink>
+                  <NavLink to={to} className="burger-menu__link" onClick={close} end>
+                    {label}
+                  </NavLink>
                 )}
               </li>
             ))}

@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #007bff;
+    --primary-color: #87BF96;
     --danger-color: #b20000;
     --muted-text: #666;
     --overlay-bg: rgba(0,0,0,0.5);
@@ -11,6 +11,7 @@
     margin: 100px auto 60px;
     padding: 0 20px;
     font-family: Arial, sans-serif;
+    min-height: calc(100vh - 200px);/* Мин. высота = вся высота экрана минус header+footer (~200px) */
   }
   
   .cart-page h1 {
