@@ -1,0 +1,8 @@
+@import './About.css';
+.page-list {
+  margin-top: 20px;
+  font-size: 1.08rem;
+  color: #333;
+  padding-left: 18px;
+  line-height: 1.7;
+}

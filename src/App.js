@@ -17,6 +17,14 @@ import { AuthProvider } from './Components/Auth/AuthContext';
 import ProtectedRoute from './Components/Auth/ProtectedRoute';
 import NotFound from './Components/Common/NotFound';
 
+import About from './Components/MenuPages/About';
+import Delivery from './Components/MenuPages/Delivery';
+import Nfc from './Components/MenuPages/Nfc';
+import CareAndWaranty from './Components/MenuPages/CareAndWaranty';
+import Create from './Components/MenuPages/Create';
+import Recycle from './Components/MenuPages/Recycle';
+import Sale from './Components/MenuPages/Sale';
+
 function App() {
   // Состояние корзины (пример из вашего кода, не трогаем)
   const [cartItems, setCartItems] = useState(() => {
@@ -88,6 +96,13 @@ function App() {
             }
           />
           <Route path="*" element={<NotFound />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/delivery" element={<Delivery />} />
+          <Route path="/nfc" element={<Nfc />} />
+          <Route path="/warranty" element={<CareAndWaranty />} />
+          <Route path="/creation" element={<Create />} />
+          <Route path="/recycle" element={<Recycle />} />
+          <Route path="/sale" element={<Sale />} />
         </Routes>
         <Subscribe />
       </BrowserRouter>
