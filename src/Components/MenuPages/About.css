@@ -1,36 +1,96 @@
 .page-container {
-    margin: 0 auto;
-    max-width: 900px;
-    background: #fff;
-    border-radius: 20px;
-    padding: 50px 32px 32px 32px;
-    box-shadow: 0 4px 32px rgba(255, 105, 89, 0.07);
-    min-height: 60vh;
-    margin-top: 110px; /* учёт фиксированного хедера */
+  margin: 0 auto;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px 32px 32px 32px;
+  box-shadow: 0 4px 32px rgba(255, 105, 89, 0.07);
+  min-height: 60vh;
+  margin-top: 110px; /* учёт фиксированного хедера */
+}
+
+.page-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #ff6959;
+  letter-spacing: 0.01em;
+}
+
+.page-text {
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1.1em;
+}
+
+.about-content {
+  display: flex;
+  gap: 44px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about-text-block {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.about-image-block {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.about-shop-image {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(255, 105, 89, 0.13);
+  margin-top: 8px;
+  object-fit: cover;
+}
+
+.founder {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 1.7em;
+  font-style: italic;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+  .about-content {
+    gap: 22px;
+  }
+  .about-shop-image {
+    max-width: 220px;
+  }
+}
+@media (max-width: 700px) {
+  .page-container {
+    padding: 22px 10px;
+    margin-top: 85px;
   }
   .page-title {
-    font-size: 2.6rem;
-    font-weight: 800;
-    margin-bottom: 28px;
-    color: #ff6959;
-    letter-spacing: 0.01em;
+    font-size: 2rem;
+    margin-bottom: 16px;
   }
   .page-text {
-    font-size: 1.15rem;
-    color: #333;
-    line-height: 1.7;
+    font-size: 1rem;
   }
-  @media (max-width: 700px) {
-    .page-container {
-      padding: 22px 10px;
-      margin-top: 85px;
-    }
-    .page-title {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-    .page-text {
-      font-size: 1rem;
-    }
+  .about-content {
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
   }
-  
+  .about-image-block {
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .about-shop-image {
+    max-width: 100%;
+    margin-top: 0;
+  }
+}

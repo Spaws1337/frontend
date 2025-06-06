@@ -1,1 +1,52 @@
-@import './About.css';
+.page-container {
+    margin: 0 auto;
+    max-width: 900px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px 32px 32px 32px;
+    box-shadow: 0 4px 32px rgba(255, 105, 89, 0.07);
+    min-height: 60vh;
+    margin-top: 110px; /* учёт фиксированного хедера */
+  }
+  .page-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 28px;
+    color: #ff6959;
+    letter-spacing: 0.01em;
+  }
+  .page-text {
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.7;
+  }
+  @media (max-width: 700px) {
+    .page-container {
+      padding: 22px 10px;
+      margin-top: 85px;
+    }
+    .page-title {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-text {
+      font-size: 1rem;
+    }
+  }
+  
+  .about-image-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-right: 32px; /* если нужно */
+  }
+  
+  .about-shoemaker-image,
+  .about-shop-image {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    object-fit: cover;
+  }

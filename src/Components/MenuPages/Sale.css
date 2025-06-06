@@ -1,1 +1,70 @@
-@import './About.css';
+.sale-special {
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: 0 6px 36px rgba(0,0,0,0.06);
+    padding: 56px 44px 40px 44px;
+    margin-top: 64px;
+    margin-bottom: 40px;
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sale-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #fd7063;
+    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+  
+  .sale-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+  }
+  
+  .sale-image {
+    width: 380px;
+    max-width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: box-shadow .22s, transform .22s;
+  }
+  
+  .sale-image:hover {
+    box-shadow: 0 8px 36px rgba(0,0,0,0.13);
+    transform: scale(1.025);
+  }
+  
+  .sale-text {
+    font-size: 1.07rem;
+    color: #636363;
+    line-height: 1.62;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+  }
+  
+  .sale-text p {
+    margin-bottom: 17px;
+  }
+  
+  @media (max-width: 900px) {
+    .sale-special {
+      padding: 32px 8px 28px 8px;
+      margin-top: 36px;
+    }
+    .sale-row {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sale-image {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+  }
+  

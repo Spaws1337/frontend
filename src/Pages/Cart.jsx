@@ -1,5 +1,6 @@
 // src/components/Cart/Cart.jsx  (или Pages/Cart.jsx — где у вас размещён)
 import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, push } from 'firebase/database';
 import './Cart.css';
 
 export default function Cart({ cartItems = [], removeFromCart, clearCart }) {
@@ -46,12 +47,31 @@ export default function Cart({ cartItems = [], removeFromCart, clearCart }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const order = { ...formData, cart: cartItems };
-    console.log('Заказ отправлен:', order);
-    setToastMessage('✅ Заказ успешно оформлен!');
-    clearCart?.(); // очищаем корзину
-    closeModal();
-    setTimeout(() => setToastMessage(''), 2000);
+  
+    // Получаем логин пользователя из localStorage
+    const currentLogin = JSON.parse(localStorage.getItem("authUser"))?.login;
+    if (!currentLogin) {
+      setToastMessage('❌ Для заказа нужно войти!');
+      return;
+    }
+  
+    const order = {
+      ...formData,
+      cart: cartItems,
+      total,
+      createdAt: Date.now()
+    };
+  
+    // Сохраняем заказ в Firebase
+    const db = getDatabase();
+    push(ref(db, `orders/${currentLogin}`), order)
+      .then(() => {
+        setToastMessage('✅ Заказ успешно оформлен!');
+        clearCart?.();
+        closeModal();
+        setTimeout(() => setToastMessage(''), 2000);
+      })
+      .catch(() => setToastMessage('❌ Ошибка при оформлении заказа'));
   };
 
   return (

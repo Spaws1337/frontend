@@ -1,0 +1,99 @@
+.health-diary-form {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    padding: 24px 28px 18px 28px;
+    margin: 0 auto 32px auto;
+    max-width: 370px;
+  }
+  
+  .health-diary-form label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  .health-diary-form input[type="number"],
+  .health-diary-form input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 13px;
+    border-radius: 7px;
+    border: 1px solid #eee;
+    font-size: 1rem;
+    background: #fafafa;
+    transition: border 0.2s;
+  }
+  
+  .health-diary-form input[type="number"]:focus,
+  .health-diary-form input[type="text"]:focus {
+    border: 1.5px solid #ff6a5b;
+    outline: none;
+  }
+  
+  .health-diary-form button {
+    margin-top: 7px;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.06rem;
+    border: none;
+    border-radius: 8px;
+    background: #ff6a5b;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px #ff6a5b18;
+  }
+  
+  .health-diary-form button:hover {
+    background: #ff3c1a;
+  }
+  
+  .health-diary-table {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px #00000010;
+    padding: 18px;
+    margin-top: 18px;
+    max-width: 470px;
+  }
+  
+  .health-diary-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  
+  .health-diary-table th,
+  .health-diary-table td {
+    padding: 7px 5px;
+    border-bottom: 1px solid #f3f3f3;
+    text-align: center;
+  }
+  
+  .health-diary-table th {
+    color: #444;
+    font-weight: 600;
+    background: #fafafa;
+  }
+  
+  .health-diary-table td:last-child {
+    width: 45px;
+  }
+  
+  .health-diary-table button {
+    padding: 3px 10px;
+    background: #ff6a5b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  .health-diary-table button:hover {
+    background: #ff3c1a;
+  }
+  

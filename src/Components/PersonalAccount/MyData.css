@@ -1,0 +1,67 @@
+.profile-form {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.06);
+    padding: 32px 36px 28px 36px;
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  
+  .profile-form label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  .profile-form input[type="text"] {
+    width: 100%;
+    padding: 9px 12px;
+    margin-bottom: 18px;
+    border-radius: 9px;
+    border: 1px solid #eee;
+    font-size: 1rem;
+    background: #fafafa;
+    transition: border 0.2s;
+  }
+  
+  .profile-form input[type="text"]:focus {
+    border: 1.5px solid #ff6a5b;
+    outline: none;
+  }
+  
+  .profile-form .avatar-preview {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  
+  .profile-form .avatar-preview img {
+    width: 68px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ff6a5b22;
+    background: #eee;
+  }
+  
+  .profile-form button[type="submit"] {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.08rem;
+    border: none;
+    border-radius: 10px;
+    background: #ff6a5b;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px #ff6a5b22;
+  }
+  
+  .profile-form button[type="submit"]:hover {
+    background: #ff3c1a;
+  }
+  
