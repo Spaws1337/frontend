@@ -26,15 +26,7 @@ export default function Recycle() {
           </p>
         </div>
         <div className="recycle-map-container">
-          <iframe
-            src="https://yandex.ru/maps/?um=constructor%3A6659c0991f8f16c7e8d30e6da5e14cf7fcd3b9af9279e9efc4e34c4f9ae3e018&amp;source=constructorLink"
-            width="360"
-            height="320"
-            frameBorder="0"
-            title="Пункты переработки обуви в Москве"
-            allowFullScreen
-            style={{ borderRadius: '18px', boxShadow: '0 2px 16px rgba(0,0,0,0.09)' }}
-          ></iframe>
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5db25facfc874f23dd868ef24e31771455ac094c7667f3836e774a3d7c53512c&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
           <div className="recycle-map-caption">
             Пример: <b>Пункт переработки обуви «Собиратор»</b><br />
             Москва, ул. Мастеркова, 4
